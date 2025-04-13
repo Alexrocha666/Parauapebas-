@@ -4,20 +4,26 @@
   <meta charset="UTF-8" />
   <title>Painel Admin - Fuxicos de Parauapebas</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
   <style>
-    textarea {
-      width: 100%;
-      height: 200px;
-      margin-top: 10px;
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea, button {
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
     }
     button {
-      margin-top: 10px;
-      padding: 10px 20px;
       background-color: #7cb518;
-      border: none;
       color: white;
+      border: none;
       cursor: pointer;
-      border-radius: 8px;
     }
   </style>
 </head>
@@ -31,10 +37,12 @@
   </nav>
 
   <main>
-    <h2>Atualizar Conteúdo da Página Inicial</h2>
-    <p>Copie e cole o conteúdo das notícias aqui. Depois, cole manualmente no `index.html` via GitHub.</p>
-    <textarea placeholder="Cole aqui seu novo bloco de notícia..."></textarea>
-    <button onclick="copiar()">Copiar Conteúdo</button>
+    <h2>Adicionar Nova Notícia</h2>
+    <form id="formNoticia">
+      <input type="text" id="titulo" placeholder="Título da notícia" required />
+      <textarea id="conteudo" placeholder="Conteúdo da notícia" required></textarea>
+      <button type="submit">Salvar Notícia</button>
+    </form>
   </main>
 
   <footer>
@@ -42,12 +50,21 @@
   </footer>
 
   <script>
-    function copiar() {
-      const textarea = document.querySelector('textarea');
-      textarea.select();
-      document.execCommand('copy');
-      alert('Conteúdo copiado! Agora cole no index.html pelo GitHub.');
-    }
+    const form = document.getElementById('formNoticia');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const titulo = document.getElementById('titulo').value;
+      const conteudo = document.getElementById('conteudo').value;
+
+      const noticias = JSON.parse(localStorage.getItem('noticias')) || [];
+      noticias.unshift({ titulo, conteudo });
+      localStorage.setItem('noticias', JSON.stringify(noticias));
+
+      alert('Notícia salva! Vá para a página inicial para ver.');
+      form.reset();
+    });
   </script>
 </body>
 </html>
