@@ -1,33 +1,89 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fuxicos de Parauapebas</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>Fuxicos de Parauapebas</h1>
-    <img src="logo-parauapebas.png" alt="Logo de Parauapebas" class="logo" />
-  </header>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fffaf3;
+  color: #3a2e2a;
+  line-height: 1.6;
+}
 
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="admin.html">Painel Admin</a>
-  </nav>
+header {
+  background: linear-gradient(135deg, #f6c800, #7cb518, #5c4033);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-  <main>
-    <article>
-      <h2>Título da Notícia</h2>
-      <p>Conteúdo da notícia vai aqui. Atualize pelo painel de administração.</p>
-    </article>
+header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 4rem;
+  margin: 0;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(90deg, #f6c800, #7cb518, #5c4033);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideFadeIn 1s ease-out;
+}
 
-    <!-- Você pode duplicar esse bloco para adicionar novas notícias -->
-  </main>
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  <footer>
-    &copy; 2025 Fuxicos de Parauapebas. Todos os direitos reservados.
-  </footer>
-</body>
-</html>
+.logo {
+  max-height: 90px;
+  margin-top: 15px;
+}
+
+nav {
+  background-color: #e6dfc2;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #5c4033;
+  font-weight: bold;
+}
+
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+article {
+  background-color: #fff;
+  border-left: 6px solid #7cb518;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+article:hover {
+  transform: translateY(-5px);
+}
+
+article h2 {
+  color: #5c4033;
+  margin-top: 0;
+}
+
+footer {
+  background-color: #5c4033;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 60px;
+}
